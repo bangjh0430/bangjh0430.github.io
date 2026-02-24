@@ -259,6 +259,10 @@ a:hover {
   margin-top: 1px;
 }
 
+.entry-sub a {
+  color: inherit;
+}
+
 .entry-aside {
   flex-shrink: 0;
   font-size: 0.8rem;
@@ -308,6 +312,8 @@ a:hover {
 .pub-authors strong {
   font-weight: 600;
   color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .pub-authors .co-first {
