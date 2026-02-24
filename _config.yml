@@ -1,0 +1,12 @@
+title: Jehyeon Bang
+description: Ph.D. Student @ KAIST School of Electrical Engineering
+url: "https://jehyeonbang.github.io"
+baseurl: ""
+
+markdown: kramdown
+permalink: pretty
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
