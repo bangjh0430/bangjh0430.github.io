@@ -346,6 +346,9 @@ a:hover {
 }
 
 .pub-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 0.73rem;
   font-weight: 500;
   padding: 3px 9px;
@@ -353,6 +356,11 @@ a:hover {
   border-radius: 4px;
   color: var(--text-secondary);
   transition: all var(--transition);
+}
+
+.pub-links a svg {
+  flex-shrink: 0;
+  vertical-align: middle;
 }
 
 .pub-links a:hover {
@@ -381,13 +389,13 @@ footer {
 }
 
 /* ========== Scroll fade-in ========== */
-.hero, .section {
+.section {
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-.hero.visible, .section.visible {
+.section.visible {
   opacity: 1;
   transform: translateY(0);
 }
