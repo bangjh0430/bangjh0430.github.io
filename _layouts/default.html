@@ -40,8 +40,22 @@
   </footer>
   <div class="toast" id="toast">Email copied to clipboard</div>
   <script>
+    let lastScrollY = window.scrollY;
+    let scrollDir = 'down';
+    window.addEventListener('scroll', () => {
+      scrollDir = window.scrollY >= lastScrollY ? 'down' : 'up';
+      lastScrollY = window.scrollY;
+    });
+
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        } else {
+          e.target.classList.remove('visible');
+          e.target.classList.toggle('scroll-up', scrollDir === 'up');
+        }
+      });
     }, { threshold: 0.1 });
     document.querySelectorAll('.section').forEach(el => observer.observe(el));
 

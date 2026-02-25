@@ -443,8 +443,12 @@ footer {
 /* ========== Scroll fade-in ========== */
 .section {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(-24px);
   transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.section.scroll-up {
+  transform: translateY(24px);
 }
 
 .section.visible {
