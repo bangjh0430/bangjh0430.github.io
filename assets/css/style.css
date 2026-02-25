@@ -283,16 +283,36 @@ a:hover {
 .pub-list {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .pub {
-  padding: 16px 0;
-  border-top: 1px solid var(--border);
+  padding: 16px 20px;
+  position: relative;
+  background: rgba(245,245,247,0.5);
+  border: 1px solid rgba(232,232,237,0.6);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.2s ease;
 }
 
-.pub:first-child {
-  border-top: none;
-  padding-top: 0;
+.pub:hover {
+  background: rgba(245,245,247,0.7);
+  border-color: rgba(110,110,115,0.3);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  .pub {
+    background: rgba(45,45,45,0.35);
+    border-color: rgba(45,45,45,0.6);
+  }
+  .pub:hover {
+    background: rgba(45,45,45,0.55);
+    border-color: rgba(134,134,139,0.3);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  }
 }
 
 .pub-title {
@@ -354,7 +374,8 @@ a:hover {
   padding: 3px 9px;
   border: 1px solid var(--border);
   border-radius: 4px;
-  color: var(--text-secondary);
+  background: #ffffff;
+  color: var(--text);
   transition: all var(--transition);
 }
 
@@ -364,8 +385,14 @@ a:hover {
 }
 
 .pub-links a:hover {
-  color: var(--text);
-  border-color: var(--text-secondary);
+  background: var(--text);
+  color: var(--bg);
+}
+
+@media (prefers-color-scheme: dark) {
+  .pub-links a {
+    background: var(--bg);
+  }
 }
 
 /* ========== Skills ========== */
