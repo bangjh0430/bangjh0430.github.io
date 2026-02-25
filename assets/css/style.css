@@ -385,8 +385,9 @@ a:hover {
 }
 
 .pub-links a:hover {
-  background: var(--text);
-  color: var(--bg);
+  border-color: var(--text-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
 }
 
 @media (prefers-color-scheme: dark) {
