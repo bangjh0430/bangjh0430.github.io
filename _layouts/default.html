@@ -38,11 +38,39 @@
       <p>&copy; {{ 'now' | date: '%Y' }} {{ site.title }}. Built with Jekyll & GitHub Pages.</p>
     </div>
   </footer>
+  <div class="toast" id="toast">Email copied to clipboard</div>
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => e.target.classList.toggle('visible', e.isIntersecting));
     }, { threshold: 0.1 });
     document.querySelectorAll('.section').forEach(el => observer.observe(el));
+
+    function copyEmail(e) {
+      e.preventDefault();
+      const email = e.currentTarget.dataset.email;
+      const showToast = () => {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2000);
+      };
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(email).then(showToast).catch(() => fallbackCopy(email, showToast));
+      } else {
+        fallbackCopy(email, showToast);
+      }
+    }
+
+    function fallbackCopy(text, cb) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      cb();
+    }
   </script>
 </body>
 </html>
